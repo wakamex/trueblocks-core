@@ -1,5 +1,5 @@
 [project]
-name = "trueblocks-python-sdk"
+name = "chifra"
 version = "0.1.0"
 authors = [
 	{ name = "Thomas Jay Rush", email = "jrush@quickblocks.io"},
