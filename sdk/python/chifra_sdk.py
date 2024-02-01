@@ -2,7 +2,7 @@
 
 import sys
 import pprint
-from src import chifra
+from chifra import chifra
 
 obj = chifra().dispatch()
 pprint.pprint(obj)
