@@ -264,7 +264,7 @@ class Chifra():
     def __init__(self):
         self.base_url = "http://localhost:8080/"
 
-    def make_url(self, cmd, posName, defFmt, options, args):
+    def make_url(self, cmd, posName, defFmt, options, *args):
         fmt = ''
         ret = ''
         skip = False
@@ -406,7 +406,6 @@ class Chifra():
     def status(self, args):
         fmt, url = self.make_url("status", "modes", "json", self.opts["status"], args)
         return self.query(fmt, self.base_url+url)
-
 
     def cmdLine(self):
         ret = "chifra"
