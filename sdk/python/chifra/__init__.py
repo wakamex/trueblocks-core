@@ -3,6 +3,9 @@ import requests
 import sys
 import logging
 
+# set logger name
+logger = logging.getLogger(__name__)
+
 class Chifra():
     session = requests.Session()
     opts = {
@@ -269,7 +272,7 @@ class Chifra():
         ret = ''
         skip = False
         for arg in args:
-            logging.debug("arg: %s", arg)
+            logger.debug("arg: %s", arg)
 
             for key in options:
                 if arg == options[key]["hotkey"]:
@@ -284,10 +287,10 @@ class Chifra():
             if option == "help":
                 os.system(f"chifra {cmd} --help")
 
-            logging.debug("%s:", option)
+            logger.debug("%s:", option)
             if option in options:
-                logging.debug("  hotKey: %s", options[option]["hotkey"])
-                logging.debug("  type: %s", options[option]["type"])
+                logger.debug("  hotKey: %s", options[option]["hotkey"])
+                logger.debug("  type: %s", options[option]["type"])
 
                 match options[option]["type"]:
                     case 'switch':
@@ -315,9 +318,9 @@ class Chifra():
                 ret += "&"
             ret += f"fmt={fmt}"
 
-        logging.debug("cmd: %s", cmd)
-        logging.debug("fmt: %s", fmt)
-        logging.debug("ret: %s", ret)
+        logger.debug("cmd: %s", cmd)
+        logger.debug("fmt: %s", fmt)
+        logger.debug("ret: %s", ret)
         return fmt, f"{cmd}?{ret}"
 
     def query(self, fmt, url):
